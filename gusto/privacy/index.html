@@ -7,144 +7,202 @@
 <meta name="description" content="Datenschutzerklärung und Privacy Policy für die Android-App Gusto (at.sweidlinger.recipeapp) von Sebastian Weidlinger.">
 <meta name="robots" content="index, follow">
 <style>
+  @font-face {
+    font-family: "Inter";
+    src: url("fonts/inter-400.woff2") format("woff2");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Inter";
+    src: url("fonts/inter-500.woff2") format("woff2");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Inter";
+    src: url("fonts/inter-700.woff2") format("woff2");
+    font-weight: 700; font-style: normal; font-display: swap;
+  }
+
   :root {
     color-scheme: light dark;
-    --paper: #ffffff;
-    --ink: #1b1b1b;
-    --muted: #6a6a68;
-    --rule: #d9d9d4;
-    --link: #10660a;
-    --mono-bg: #f4f4f1;
+    --bg: #fdfdfd;
+    --surface: #f6f6f6;
+    --ink: #1d1d1d;
+    --muted: #6b6b6b;
+    --rule: #e4e4e4;
+    --link: #7b54ea;
+    --numeral: #9671ff;
+    --tint: #eae3ff;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper: #1e2124;
-      --ink: #e6e4df;
-      --muted: #9a9c98;
-      --rule: #34383c;
-      --link: #5fd44a;
-      --mono-bg: #26292d;
+      --bg: #1d1d1d;
+      --surface: #262626;
+      --ink: #f1f1f1;
+      --muted: #a0a0a0;
+      --rule: #343434;
+      --link: #ad98fa;
+      --numeral: #9671ff;
+      --tint: #2b2440;
     }
   }
+
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
-    background: var(--paper);
+    background: var(--bg);
     color: var(--ink);
-    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 17px;
-    line-height: 1.72;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  .sheet { max-width: 38rem; margin: 0 auto; padding: 3.5rem 1.5rem 5rem; }
+
+  .topbar {
+    border-bottom: 1px solid var(--rule);
+    background: var(--bg);
+  }
+  .topbar-inner {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 1.1rem 1.5rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .wordmark {
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: -.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .topbar a.jump { font-size: .9rem; color: var(--link); }
+
+  main { max-width: 46rem; margin: 0 auto; padding: 3.5rem 1.5rem 5rem; }
 
   h1 {
-    font-size: 1.75rem;
-    font-weight: normal;
-    line-height: 1.25;
-    margin: 0 0 .15rem;
+    font-size: 2.7rem;
+    font-weight: 700;
+    letter-spacing: -.035em;
+    line-height: 1.1;
+    margin: 0 0 1rem;
   }
-  .alt-title { color: var(--muted); font-size: 1.05rem; margin: 0 0 1.8rem; }
-  .alt-title a { color: var(--link); }
+  .lede {
+    font-size: 1.12rem;
+    color: var(--muted);
+    margin: 0 0 2.5rem;
+    max-width: 34rem;
+  }
 
-  .letterhead { margin: 0 0 1.6rem; }
-  .letterhead div { margin: .18rem 0; }
-  .letterhead .k { color: var(--muted); }
-  .letterhead .v { }
-  .mono {
-    font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: .88em;
-    background: var(--mono-bg);
-    padding: .06em .3em;
+  .facts {
+    background: var(--surface);
+    padding: 1.5rem 1.6rem;
+    margin: 0 0 1rem;
   }
-  .issued { color: var(--muted); font-size: .92rem; margin: 0 0 2.2rem; }
-
-  hr {
-    border: 0;
-    border-top: 1px solid var(--rule);
-    margin: 0 0 2rem;
-  }
-  hr.between-languages { margin: 4rem 0 3rem; }
+  .facts dl { margin: 0; display: grid; grid-template-columns: 11rem 1fr; gap: .55rem 1.5rem; }
+  .facts dt { color: var(--muted); font-size: .95rem; }
+  .facts dd { margin: 0; font-weight: 500; font-size: .95rem; }
+  .facts a { font-weight: 500; }
+  .issued { color: var(--muted); font-size: .9rem; margin: 0 0 3.5rem; }
 
   h2 {
-    font-size: 1.12rem;
-    font-weight: bold;
-    line-height: 1.35;
-    margin: 2.5rem 0 .5rem;
-    position: relative;
-    padding-left: 2.4rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    line-height: 1.3;
+    margin: 3.25rem 0 .75rem;
   }
-  h2 .n {
-    position: absolute;
-    left: 0;
-    top: .07em;
-    font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: .82em;
-    font-weight: normal;
-    color: var(--muted);
-  }
+  h2 .n { color: var(--numeral); }
   h3 {
-    font-size: 1rem;
-    font-weight: bold;
-    font-style: italic;
-    margin: 1.6rem 0 .3rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 2rem 0 .4rem;
   }
-  p { margin: .75rem 0; }
-  ul { margin: .75rem 0; padding-left: 1.15rem; }
-  li { margin: .35rem 0; }
-  a { color: var(--link); text-underline-offset: .15em; }
+  p { margin: 1rem 0; }
+  ul { margin: 1rem 0; padding-left: 1.3rem; }
+  li { margin: .5rem 0; padding-left: .2rem; }
+  li::marker { color: var(--numeral); }
+  a { color: var(--link); text-underline-offset: .18em; }
   a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+  strong { font-weight: 700; }
 
-  .doc-title {
-    font-size: 1.45rem;
-    font-weight: normal;
-    padding-left: 0;
-    margin: 0 0 1.8rem;
+  .language-break {
+    margin: 5rem 0 3.5rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--rule);
+  }
+  .language-break h2 {
+    font-size: 2.7rem;
+    letter-spacing: -.035em;
+    line-height: 1.1;
+    margin: 0;
   }
 
   footer {
-    margin-top: 4rem;
-    padding-top: 1.2rem;
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
     border-top: 1px solid var(--rule);
     color: var(--muted);
     font-size: .92rem;
   }
 
-  @media (max-width: 34rem) {
+  @media (max-width: 40rem) {
     body { font-size: 16px; }
-    .sheet { padding: 2.5rem 1.15rem 4rem; }
-    h2 { padding-left: 0; }
-    h2 .n { position: static; margin-right: .5em; }
+    main { padding: 2.5rem 1.25rem 4rem; }
+    .topbar-inner, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+    h1, .language-break h2 { font-size: 2rem; }
+    h2 { font-size: 1.25rem; margin-top: 2.75rem; }
+    .facts { padding: 1.25rem 1.25rem; }
+    .facts dl { grid-template-columns: 1fr; gap: .1rem; }
+    .facts dd { margin-bottom: .7rem; }
   }
 </style>
 </head>
 <body>
-<div class="sheet">
 
-<h1>Datenschutzerklärung</h1>
-<p class="alt-title">für Gusto — <a href="#english">English version below</a></p>
-
-<div class="letterhead">
-  <div><span class="k">App</span> <span class="v">Gusto für Android, <span class="mono">at.sweidlinger.recipeapp</span></span></div>
-  <div><span class="k">Entwickler</span> <span class="v">Sebastian Weidlinger, Österreich</span></div>
-  <div><span class="k">Google-Play-Konto</span> <span class="v mono">SWeid</span></div>
-  <div><span class="k">Kontakt</span> <span class="v"><a href="mailto:s.weidlinger.dev@gmail.com" class="mono">s.weidlinger.dev@gmail.com</a></span></div>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="wordmark" href="/">Gusto</a>
+    <a class="jump" href="#english">English version</a>
+  </div>
 </div>
 
-<p class="issued">Fassung vom 11. September 2026. Sie ersetzt alle früheren Fassungen.</p>
+<main>
 
-<hr>
+<h1>Datenschutzerklärung</h1>
+<p class="lede">
+  Wie die Android-App Gusto mit Daten umgeht: was auf dem Gerät bleibt, was an Google
+  übermittelt wird und welche Rechte daraus entstehen.
+</p>
+
+<div class="facts">
+  <dl>
+    <dt>App</dt>
+    <dd>Gusto für Android, at.sweidlinger.recipeapp</dd>
+    <dt>Entwickler</dt>
+    <dd>Sebastian Weidlinger, Österreich</dd>
+    <dt>Google-Play-Konto</dt>
+    <dd>SWeid</dd>
+    <dt>Kontakt</dt>
+    <dd><a href="mailto:s.weidlinger.dev@gmail.com">s.weidlinger.dev@gmail.com</a></dd>
+  </dl>
+</div>
+<p class="issued">Fassung vom 11. September 2026. Sie ersetzt alle früheren Fassungen.</p>
 
 <section lang="de">
 
-<h2><span class="n">1</span>Verantwortlicher</h2>
+<h2><span class="n">1.</span> Verantwortlicher</h2>
 <p>
   Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) für die Verarbeitung
-  personenbezogener Daten in der Android-App Gusto
-  (<span class="mono">at.sweidlinger.recipeapp</span>) ist Sebastian Weidlinger, Österreich,
-  erreichbar unter
-  <a href="mailto:s.weidlinger.dev@gmail.com">s.weidlinger.dev@gmail.com</a>.
-  Die App wird im Google Play Store unter dem Entwicklerkonto SWeid veröffentlicht.
+  personenbezogener Daten in der Android-App Gusto (at.sweidlinger.recipeapp) ist
+  Sebastian Weidlinger, Österreich, erreichbar unter
+  <a href="mailto:s.weidlinger.dev@gmail.com">s.weidlinger.dev@gmail.com</a>. Die App wird
+  im Google Play Store unter dem Entwicklerkonto SWeid veröffentlicht.
 </p>
 <p>
   Die vollständige Anschrift wird auf Anfrage per E-Mail bekannt gegeben. Diese
@@ -152,7 +210,7 @@
   oder Dienste Dritter.
 </p>
 
-<h2><span class="n">2</span>Worum es bei Gusto geht</h2>
+<h2><span class="n">2.</span> Worum es bei Gusto geht</h2>
 <p>
   Gusto ist eine Client-App für selbst gehostete Mealie-Rezeptserver. Die App legt kein
   Benutzerkonto an und betreibt keinen eigenen Server, auf dem Rezepte oder andere
@@ -164,7 +222,7 @@
   Google ein. Abschnitt 5 beschreibt, welche Daten dabei anfallen.
 </p>
 
-<h2><span class="n">3</span>Daten, die das Gerät nicht verlassen</h2>
+<h2><span class="n">3.</span> Daten, die das Gerät nicht verlassen</h2>
 <p>Folgendes wird lokal gespeichert und nicht an den Entwickler übertragen:</p>
 <ul>
   <li>Rezept- und Kategoriedaten aus dem Mealie-Server, zwischengespeichert in einer lokalen Datenbank, damit die App offline funktioniert.</li>
@@ -176,7 +234,7 @@
   Deinstallieren der App werden sie gemeinsam mit der App vom Gerät entfernt.
 </p>
 
-<h2><span class="n">4</span>Verbindung zum eigenen Mealie-Server</h2>
+<h2><span class="n">4.</span> Verbindung zum eigenen Mealie-Server</h2>
 <p>
   Bei der Anmeldung stellt Gusto eine direkte Verbindung zu der angegebenen Mealie-Instanz
   her. Diese Verbindung läuft ausschließlich zwischen Gerät und Server; der Entwickler hat
@@ -187,7 +245,7 @@
   verantwortlich. Diese Datenschutzerklärung erstreckt sich nicht darauf.
 </p>
 
-<h2><span class="n">5</span>Analyse- und Absturzdaten</h2>
+<h2><span class="n">5.</span> Analyse- und Absturzdaten</h2>
 <p>
   Die im Google Play Store veröffentlichten Versionen der App verwenden zwei Dienste von
   Google, um Fehler zu erkennen und die App stabil zu halten.
@@ -223,7 +281,7 @@
   <a href="https://firebase.google.com/support/privacy" rel="noopener">firebase.google.com/support/privacy</a>.
 </p>
 
-<h2><span class="n">6</span>Rechtsgrundlagen</h2>
+<h2><span class="n">6.</span> Rechtsgrundlagen</h2>
 <p>
   Die Verarbeitung der in Abschnitt 5 genannten Daten stützt sich auf Art. 6 Abs. 1 lit. f
   DSGVO. Das berechtigte Interesse besteht darin, Fehler zu erkennen, die App stabil zu
@@ -235,21 +293,21 @@
   erforderlich ist.
 </p>
 
-<h2><span class="n">7</span>Speicherdauer</h2>
+<h2><span class="n">7.</span> Speicherdauer</h2>
 <ul>
   <li>Lokale Daten bleiben bis zum Löschen der App-Daten oder zur Deinstallation auf dem Gerät.</li>
   <li>Absturzberichte in Crashlytics werden bis zu 90 Tage aufbewahrt.</li>
   <li>Ereignisdaten in Google Analytics für Firebase werden 2 Monate gespeichert. Nutzerbezogene Daten werden 14 Monate nach der letzten Aktivität gelöscht; jede neue Aktivität setzt diese Frist neu in Gang. Aggregierte, nicht personenbezogene Auswertungen können darüber hinaus bestehen bleiben.</li>
 </ul>
 
-<h2><span class="n">8</span>Weitergabe an Dritte</h2>
+<h2><span class="n">8.</span> Weitergabe an Dritte</h2>
 <p>
   Über die in Abschnitt 5 beschriebene Verarbeitung durch Google hinaus werden keine Daten
   an Dritte weitergegeben. Es findet kein Verkauf von Daten statt, und es sind keine
   Werbenetzwerke eingebunden.
 </p>
 
-<h2><span class="n">9</span>Berechtigungen der App</h2>
+<h2><span class="n">9.</span> Berechtigungen der App</h2>
 <p>
   Die App fordert Internetzugriff an, um sich mit dem Mealie-Server und den
   Firebase-Diensten zu verbinden, Zugriff auf das lokale Netzwerk, um einen Mealie-Server
@@ -257,7 +315,7 @@
   bei der Bedienung. Auf Standort, Kontakte, Kamera oder Mikrofon greift die App nicht zu.
 </p>
 
-<h2><span class="n">10</span>Rechte der betroffenen Person</h2>
+<h2><span class="n">10.</span> Rechte der betroffenen Person</h2>
 <p>
   Nach der DSGVO bestehen die Rechte auf Auskunft (Art. 15), Berichtigung (Art. 16),
   Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit
@@ -270,7 +328,7 @@
   Datenschutzbehörde, <a href="https://www.dsb.gv.at" rel="noopener">dsb.gv.at</a>.
 </p>
 
-<h2><span class="n">11</span>Löschung der Daten</h2>
+<h2><span class="n">11.</span> Löschung der Daten</h2>
 <p>
   Da die App kein Benutzerkonto beim Entwickler anlegt, gibt es kein Konto, das gelöscht
   werden müsste. Durch Deinstallieren der App oder Löschen der App-Daten in den
@@ -283,13 +341,13 @@
   an die oben genannte Adresse.
 </p>
 
-<h2><span class="n">12</span>Kinder</h2>
+<h2><span class="n">12.</span> Kinder</h2>
 <p>
   Die App richtet sich nicht an Kinder unter 16 Jahren. Es werden wissentlich keine Daten
   von Kindern erhoben.
 </p>
 
-<h2><span class="n">13</span>Änderungen</h2>
+<h2><span class="n">13.</span> Änderungen</h2>
 <p>
   Diese Datenschutzerklärung wird angepasst, wenn sich die Funktionen der App oder die
   rechtlichen Anforderungen ändern. Die jeweils aktuelle Fassung steht unter dieser
@@ -298,17 +356,17 @@
 
 </section>
 
-<hr class="between-languages">
+<div class="language-break" id="english">
+  <h2>Privacy Policy</h2>
+</div>
 
-<section id="english" lang="en">
+<section lang="en">
 
-<h2 class="doc-title">Privacy Policy</h2>
-
-<h2><span class="n">1</span>Data controller</h2>
+<h2><span class="n">1.</span> Data controller</h2>
 <p>
   The controller under the EU General Data Protection Regulation (GDPR) for personal data
-  processed in the Android app Gusto (<span class="mono">at.sweidlinger.recipeapp</span>)
-  is Sebastian Weidlinger, Austria, reachable at
+  processed in the Android app Gusto (at.sweidlinger.recipeapp) is Sebastian Weidlinger,
+  Austria, reachable at
   <a href="mailto:s.weidlinger.dev@gmail.com">s.weidlinger.dev@gmail.com</a>. The app is
   published on the Google Play Store under the developer account SWeid.
 </p>
@@ -317,7 +375,7 @@
   named above only, and no third-party website or service.
 </p>
 
-<h2><span class="n">2</span>What Gusto is</h2>
+<h2><span class="n">2.</span> What Gusto is</h2>
 <p>
   Gusto is a client app for self-hosted Mealie recipe servers. It creates no user account
   and runs no server of its own on which recipes or other user content would be stored.
@@ -329,7 +387,7 @@
   5 describes what that involves.
 </p>
 
-<h2><span class="n">3</span>Data that never leaves the device</h2>
+<h2><span class="n">3.</span> Data that never leaves the device</h2>
 <p>The following is stored locally and never transmitted to the developer:</p>
 <ul>
   <li>Recipe and category data from the Mealie server, cached in a local database so the app works offline.</li>
@@ -341,7 +399,7 @@
   removes it from the device.
 </p>
 
-<h2><span class="n">4</span>Connecting to your own Mealie server</h2>
+<h2><span class="n">4.</span> Connecting to your own Mealie server</h2>
 <p>
   On sign-in, Gusto connects directly to the Mealie instance specified by the user. That
   connection runs strictly between the device and that server; the developer has no access
@@ -352,7 +410,7 @@
   does not extend to it.
 </p>
 
-<h2><span class="n">5</span>Analytics and crash data</h2>
+<h2><span class="n">5.</span> Analytics and crash data</h2>
 <p>
   The versions published on the Google Play Store use two Google services to detect faults
   and keep the app stable.
@@ -387,7 +445,7 @@
   <a href="https://firebase.google.com/support/privacy" rel="noopener">firebase.google.com/support/privacy</a>.
 </p>
 
-<h2><span class="n">6</span>Legal bases</h2>
+<h2><span class="n">6.</span> Legal bases</h2>
 <p>
   Processing of the data described in section 5 relies on Art. 6(1)(f) GDPR. The
   legitimate interest is detecting faults, keeping the app stable and improving it in a
@@ -398,20 +456,20 @@
   is necessary to deliver the app functionality the user requested.
 </p>
 
-<h2><span class="n">7</span>Retention</h2>
+<h2><span class="n">7.</span> Retention</h2>
 <ul>
   <li>Local data remains on the device until the app's data is cleared or the app is uninstalled.</li>
   <li>Crash reports in Crashlytics are kept for up to 90 days.</li>
   <li>Event data in Google Analytics for Firebase is kept for 2 months. User-level data is deleted 14 months after the last activity, and each new activity restarts that period. Aggregated, non-personal statistics may be retained beyond that.</li>
 </ul>
 
-<h2><span class="n">8</span>Sharing with third parties</h2>
+<h2><span class="n">8.</span> Sharing with third parties</h2>
 <p>
   Beyond the processing by Google described in section 5, no data is shared with third
   parties. No data is sold, and no advertising networks are integrated.
 </p>
 
-<h2><span class="n">9</span>App permissions</h2>
+<h2><span class="n">9.</span> App permissions</h2>
 <p>
   The app requests internet access to reach the Mealie server and the Firebase services,
   local network access to reach a Mealie server running on a home network, and the
@@ -419,7 +477,7 @@
   location, contacts, camera or microphone.
 </p>
 
-<h2><span class="n">10</span>Your rights</h2>
+<h2><span class="n">10.</span> Your rights</h2>
 <p>
   Under the GDPR you have the right of access (Art. 15), rectification (Art. 16), erasure
   (Art. 17), restriction of processing (Art. 18), data portability (Art. 20) and to object
@@ -432,7 +490,7 @@
   <a href="https://www.dsb.gv.at" rel="noopener">dsb.gv.at</a>.
 </p>
 
-<h2><span class="n">11</span>Deleting your data</h2>
+<h2><span class="n">11.</span> Deleting your data</h2>
 <p>
   Because the app creates no user account with the developer, there is no account to
   delete. Uninstalling the app, or clearing its data in the Android settings, removes all
@@ -444,19 +502,21 @@
   is enough.
 </p>
 
-<h2><span class="n">12</span>Children</h2>
+<h2><span class="n">12.</span> Children</h2>
 <p>
   The app is not directed at children under 16. No data is knowingly collected from
   children.
 </p>
 
-<h2><span class="n">13</span>Changes</h2>
+<h2><span class="n">13.</span> Changes</h2>
 <p>
   This policy is updated when the app's functionality or the legal requirements change. The
   current version is always at this address, and its date appears at the top of the page.
 </p>
 
 </section>
+
+</main>
 
 <footer>
   <p>
@@ -466,6 +526,5 @@
   </p>
 </footer>
 
-</div>
 </body>
 </html>
